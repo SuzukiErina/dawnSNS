@@ -76,16 +76,44 @@ class RegisterController extends Controller
     // }
 
     public function register(Request $request){
-        if($request->isMethod('post')){
-            $data = $request->input();
 
+        if($request->isMethod('post')){
+            $request->validate(
+            [
+                'username' => ['required','between:4,12'],
+                'mail' => ['required','email','between:4,12','unique:users'],
+                'password' => ['required','alpha_num','between:4,12','unique:users'],
+                'password-confirm' => ['required','alpha_num','between:4,12','same:password'],
+            ],
+            [
+                'username.required' => '必須項目です',
+                'username.between' => '4文字以上、12文字以内で入力してください',
+                'mail.required' => '必須項目です',
+                'mail.email' => 'メールアドレスではありません',
+                'mail.between' => '4文字以上、12文字以内で入力してください',
+                'mail.unique' => 'すでに登録されたメールアドレスです',
+                'password.required' => '必須項目です',
+                'password.alpha_num' => '英数字で入力してください',
+                'password.between' => '4文字以上、12文字以内で入力してください',
+                'password.unique' => 'すでに登録されたパスワードです',
+                'password-confirm.required' => '必須項目です',
+                'password-confirm.alpha_num' => '英数字で入力してください',
+                'password-confirm.between' => '4文字以上、12文字以内で入力してください',
+                'password-confirm.same' => 'パスワードと確認用パスワードが一致しません'
+            ]
+            );
+
+            $data = $request->input();
             $this->create($data);
+
+            session()->put(['username' => $data['username']]);
             return redirect('added');
         }
         return view('auth.register');
     }
 
     public function added(){
+        session()->get('username');
         return view('auth.added');
     }
 }
