@@ -4,8 +4,72 @@ html{
 body{
 }
 /* header */
-header{
+#header{
     background:#3C4767;
+    width: 100%;
+    height: 100px;
+}
+
+.header-block{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.menu-trigger{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+}
+
+.menu-trigger span{
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: 1px solid white;
+    border-right: 1px solid white;
+    transform: rotate(135deg);
+    transition: 0.3s ease-in-out;
+}
+
+.menu-trigger.active span{
+    transform: rotate(-45deg);
+}
+
+.header-nav{
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 0;
+}
+
+.header-nav ul{
+    width: 300px;
+}
+
+.header-nav li{
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #6C6C6C;
+    margin: 0 0 -1px;
+}
+
+.header-nav li:hover{
+    background-color: orange;
+}
+
+.icon{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }
 
 /* main content */
