@@ -29,7 +29,7 @@
                     <a href="/top"><img src="{{ asset("images/main_logo.png") }}"></a>
                 </div>
                 <div class="menu-trigger">
-                    <p><?php $user = Auth::user(); ?>{{$user->username}} さん</p><span></span>
+                    <p>{{$user->username}} さん</p><span></span>
                     <img class="icon" src="{{asset ("images/dawn.png") }}">
                 </div>
                 <nav class="header-nav">
@@ -49,18 +49,18 @@
         <div id="side-bar">
             <div id="confirm">
                 <p>{{$user->username}}さんの</p>
-                <div>
+                <div class="follow">
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>{{$follow_count}}名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
-                <div>
+                <button class="sidebar-btn" onclick="location.href='/follow-list'">フォローリスト</button>
+                <div class="follower">
                 <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p>{{$follower_count}}名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <button class="sidebar-btn" onclick="location.href='/follower-list'">フォロワーリスト</button>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <button class="sidebar-btn search-btn" onclick="location.href='/search'">ユーザー検索</button>
         </div>
     </div>
     <footer>

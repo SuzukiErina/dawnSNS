@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Follow;
+use App\Post;
+use App\User;
 
 class PostsController extends Controller
 {
@@ -12,7 +16,38 @@ class PostsController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
-        return view('posts.index');
+    public function index(User $user, Follow $follow){
+        $user = auth()->user();
+        $follow_count = $follow->getFollowCount($user->id);
+        $follower_count = $follow->getFollowerCount($user->id);
+        $posts = Post::all();
+
+        return view('posts.index',[
+            'user' => $user,
+            'follow_count' => $follow_count,
+            'follower_count' => $follower_count,
+            'posts' => $posts
+        ]);
+    }
+
+    public function create(Request $request){
+            $request->validate(
+            [
+                'newPost' => ['required','max:150'],
+            ],
+            [
+                'newPost.required' => '必須項目です',
+                'newPost.max' => '150文字以内で入力してください',
+            ]
+            );
+
+        $user_id = $request->input('id');
+        $post = $request->input('newPost');
+        DB::table('posts')->insert([
+            'user_id' => $user_id,
+            'posts' => $post
+        ]);
+
+        return redirect('/top');
     }
 }

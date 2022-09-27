@@ -75,7 +75,7 @@ body{
 /* main content */
 #row{
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: nowrap;
 }
 #container{
     flex: 0 0 80%;
@@ -83,4 +83,78 @@ body{
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #6C6C6C;
+}
+
+/* sidebar */
+#confirm{
+    padding: 20px 3%;
+    border-bottom: 1px solid #6C6C6C;
+}
+
+.follow, .follower{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.sidebar-btn{
+    display: block;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    background-color: #3C4767;
+    color: white;
+    border-radius: 10%;
+    border: none;
+}
+
+.search-btn{
+    margin: 20px auto;
+}
+
+/* 投稿エリア */
+.post-area{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 5px solid #dcdcdc;
+}
+
+.post-icon{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.form-control{
+    width: 1000px;
+    height: 70px;
+    vertical-align: bottom;
+    border: none;
+}
+
+.post-btn{
+    cursor: pointer;
+    background-color: white;
+    border: none;
+}
+
+.error-txt {
+    color: red;
+}
+
+/* つぶやきエリア */
+.posts-area{
+    padding: 20px 30px;
+}
+
+.posts-icon{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
 }
