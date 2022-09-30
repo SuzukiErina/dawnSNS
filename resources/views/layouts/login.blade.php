@@ -26,11 +26,11 @@
         <div id = "header">
             <div class="header-block">
                 <div class="nav-logo">
-                    <a href="/top"><img src="{{ asset("images/main_logo.png") }}"></a>
+                    <a href="/top"><img src="images/main_logo.png"></a>
                 </div>
                 <div class="menu-trigger">
                     <p>{{$user->username}} さん</p><span></span>
-                    <img class="icon" src="{{asset ("images/dawn.png") }}">
+                    <img class="icon" src="images/{{$user->images}}">
                 </div>
                 <nav class="header-nav">
                     <ul>

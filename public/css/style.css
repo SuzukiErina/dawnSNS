@@ -150,11 +150,34 @@ body{
 
 /* つぶやきエリア */
 .posts-area{
+    display: flex;
+    justify-content: space-between;
     padding: 20px 30px;
+    color: #696969;
 }
 
 .posts-icon{
     border-radius: 50%;
     width: 40px;
     height: 40px;
+}
+
+.posts{
+    width: 1100px;
+}
+
+.posts-top{
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    padding-bottom: 10px;
+}
+
+hr{
+    border: none;
+}
+
+.posts-border{
+    width: 98%;
+    border-top: 2px solid #dcdcdc;
 }
