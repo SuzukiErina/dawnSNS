@@ -16,11 +16,13 @@ class PostsController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(User $user, Follow $follow){
+    public function index(User $user, Follow $follow, Post $post){
         $user = auth()->user();
         $follow_count = $follow->getFollowCount($user->id);
         $follower_count = $follow->getFollowerCount($user->id);
-        $posts = Post::all();
+        $follow_ids = $follow->followIds($user->id);
+        $following_ids = $follow_ids->pluck('follower_id')->toArray();
+        $posts = $post->getTimeLines($user->id,$following_ids);
 
         return view('posts.index',[
             'user' => $user,
