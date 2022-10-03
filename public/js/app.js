@@ -41,3 +41,12 @@ $(function () {
     $(this).next('.header-nav').slideToggle();
   });
 });
+
+$(function () {
+  $('.edit-btn').click(function () {
+    scroll_position = $(window).scrollTop();
+    $('body').addclass('fixed').css({ 'top': -scroll_position });
+    $('.post-edit').fadeIn();
+    $('.modal').fadeIn();
+  });
+})

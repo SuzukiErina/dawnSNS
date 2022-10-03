@@ -66,6 +66,11 @@ body{
     background-color: orange;
 }
 
+.header-nav ul li a{
+    display: block;
+    color: #6C6C6C;
+}
+
 .icon{
     border-radius: 50%;
     width: 30px;
@@ -76,12 +81,15 @@ body{
 #row{
     display: flex;
     flex-wrap: nowrap;
+    overflow: hidden;
 }
 #container{
     flex: 0 0 80%;
 }
 #side-bar{
     flex: 0 0 19%;
+    padding-bottom: 10000px;
+    margin-bottom: -10000px;
     border-left: 1px solid #6C6C6C;
 }
 
@@ -180,4 +188,52 @@ hr{
 .posts-border{
     width: 98%;
     border-top: 2px solid #dcdcdc;
+}
+
+.posts-bottom{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-btn{
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    margin-right: 15px;
+}
+
+.delete-btn {
+    cursor: pointer;
+    background-color: white;
+    border: none;
+}
+
+.edit-btn img, .delete-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.post-edit{
+    display: none;
+    position: fixed;
+    z-index: 15;
+    top: 30%;
+    left: 50%;
+    width: 600px;
+    padding: 10px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, -10%);
+    transform: translate(-50%, -10%);
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(152, 152, 152, 0.7);
+    width: 100%;
+    height: 100%;
+    z-index: 10;
 }
