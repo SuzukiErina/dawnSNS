@@ -54,6 +54,12 @@ class PostsController extends Controller
     }
 
     public function update(Request $request){
+        $request->validate(
+            [
+                'upPost' => ['required','max:200'],
+            ]
+            );
+
         $id = $request->input('id');
         $up_post = $request->input('upPost');
         DB::table('posts')

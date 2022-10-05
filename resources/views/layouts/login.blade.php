@@ -61,7 +61,7 @@
                 </div>
                 <button class="sidebar-btn" onclick="location.href='/follower-list'">フォロワーリスト</button>
             </div>
-            <button class="sidebar-btn search-btn" onclick="location.href='/search'">ユーザー検索</button>
+            <button class="sidebar-btn usersearch-btn" onclick="location.href='/search'">ユーザー検索</button>
         </div>
     </div>
     <footer>
