@@ -43,10 +43,13 @@ $(function () {
 });
 
 $(function () {
-  $('.edit-btn').click(function () {
-    scroll_position = $(window).scrollTop();
-    $('body').addclass('fixed').css({ 'top': -scroll_position });
-    $('.post-edit').fadeIn();
-    $('.modal').fadeIn();
+  $('.modal-open').click(function () {
+    $('.overlay').addClass("open");
+;  });
+});
+
+$(function () {
+  $('.modal-close').click(function () {
+    $('.overlay').removeClass("open");
   });
 })
