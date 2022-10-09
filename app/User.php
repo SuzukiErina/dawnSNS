@@ -34,4 +34,20 @@ class User extends Authenticatable
     public function follows(){
         return $this->hasMany('App\Follow');
     }
+
+    public function follow(Int $user_id){
+        return $this->follows()->attach($user_id);
+    }
+
+    public function unfollow(Int $user_id){
+        return $this->follows()->detach($user_id);
+    }
+
+    // public function isFollowing(Int $user_id){
+    //     return $this->follows()->where('follower_id',$user_id)->exists();
+    // }
+
+    // public function isFollowed(Int $user_id){
+    //     return (boolean) $this->follows()->where('follower_id',$user_id)->first(['id']);
+    // }
 }

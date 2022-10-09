@@ -11,6 +11,17 @@
 <div class="users-area">
   <img class="users-icon" src="images/{{$active_user->images}}">
   {{ $active_user->username }}
+  <div class="btn-area">
+    @if (DB::table('follows')->where([
+                              ['follow_id','=',$user->id],
+                              ['follower_id','=',$active_user->id],
+                              ])
+                              ->exists())
+    <button class="unfollow-btn" onclick="location.href='/{{$active_user->id}}/unfollow'">フォロー解除</button>
+    @else
+    <button class="follow-btn" onclick="location.href='/{{$active_user->id}}/follow'">フォローする</button>
+    @endif
+  </div>
 </div>
 @endforeach
 

@@ -291,7 +291,7 @@ hr{
     display: flex;
     justify-content: space-between;
     align-content: center;
-    padding: 2% 5%;
+    padding: 2% 8%;
     border-bottom: 5px solid #dcdcdc;
 }
 
@@ -316,7 +316,7 @@ hr{
 
 .users-area{
     display: flex;
-    margin: 2% 3%;
+    margin: 3% 30% 3% 8%;
     align-items: center;
     font-size: 1.3rem;
 }
@@ -326,4 +326,30 @@ hr{
     height: 60px;
     border-radius: 50%;
     margin-right: 30px;
+}
+
+.btn-area{
+    margin: 0 0 0 auto;
+}
+
+.follow-btn{
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    margin-left: 10px;
+    background-color: #6283c2;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    }
+
+.unfollow-btn {
+    cursor: pointer;
+    width: 150px;
+    height: 50px;
+    margin-left: 10px;
+    background-color: #b4534b;
+    color: white;
+    border-radius: 5px;
+    border: none;
 }
