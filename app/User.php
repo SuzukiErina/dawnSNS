@@ -43,11 +43,4 @@ class User extends Authenticatable
         return $this->follows()->detach($user_id);
     }
 
-    // public function isFollowing(Int $user_id){
-    //     return $this->follows()->where('follower_id',$user_id)->exists();
-    // }
-
-    // public function isFollowed(Int $user_id){
-    //     return (boolean) $this->follows()->where('follower_id',$user_id)->first(['id']);
-    // }
 }

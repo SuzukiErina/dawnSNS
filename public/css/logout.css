@@ -1,13 +1,143 @@
 @charset "utf-8";
 
 html{
-    height: 100%;
 }
+
 body{
-    height: 100%;
-    background: #3C4767;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #3C4767 65%, #ff4500);
+    background-size: cover;
+}
+
+header{
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid #3C4767;
+}
+
+header img{
+    display: block;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+header p{
+    text-align: center;
+    color: white;
+    font-size: 25px;
+}
+
+/* ログイン画面 */
+.login{
+    width: 25%;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 2%;
+    background:rgba(34,41,61,0.4);
+    border-radius: 10px;
+    color: white;
+    line-height: 25px;
+}
+
+.welcome{
+    margin-bottom: 8%;
+    text-align: center;
+}
+
+label{
+    margin-left: 40px;
+}
+
+.input{
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 40px;
+}
+
+.login-btn{
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    margin-left: 245px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    background-color: #3C4767;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+.new{
+    color: white;
+    text-align: center;
+}
+
+/* 新規登録画面 */
+.register {
+    width: 25%;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 2%;
+    background: rgba(34, 41, 61, 0.4);
+    border-radius: 10px;
+    color: white;
+    line-height: 25px;
+}
+
+h2{
+    text-align: center;
+}
+
+.register-btn {
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    margin-left: 245px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    background-color: #3C4767;
+    color: white;
+    border-radius: 5px;
+    border: none;
 }
 
 .error-txt{
     color: red;
+    margin-left: 40px;
+}
+
+/* 登録完了画面 */
+#clear {
+    width: 25%;
+    height: 180px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 2%;
+    background: rgba(34, 41, 61, 0.4);
+    border-radius: 10px;
+    color: white;
+    line-height: 25px;
+    text-align: center;
+}
+
+.name{
+    font-size: 18px;
+}
+
+.back-btn {
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    margin-left: 245px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    background-color: #3C4767;
+    color: white;
+    border-radius: 5px;
+    border: none;
 }

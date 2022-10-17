@@ -32,4 +32,28 @@ class UsersController extends Controller
             'all_users' => $all_users
         ]);
     }
+
+    public function result(User $user, Follow $follow, Request $request){
+        $user = auth()->user();
+        $follow_count = $follow->getFollowCount($user->id);
+        $follower_count = $follow->getFollowerCount($user->id);
+
+        $keyword = $request->input('keyword');
+        $query = User::query();
+        foreach ((array)$keyword as $value) {
+            $query->where([
+                ['username','like','%'.$value.'%'],
+                ['id','<>',auth()->user()->id],
+            ]);
+        }
+        $all_users = $query->paginate(10);
+
+        return view('users.search',[
+            'user' => $user,
+            'follow_count' => $follow_count,
+            'follower_count' => $follower_count,
+            'all_users' => $all_users,
+            'keyword' => $keyword
+        ]);
+    }
 }

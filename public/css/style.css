@@ -83,11 +83,12 @@ body{
     flex-wrap: nowrap;
     overflow: hidden;
 }
+
 #container{
     flex: 0 0 80%;
 }
 #side-bar{
-    flex: 0 0 19%;
+    flex: 0 0 20%;
     padding-bottom: 10000px;
     margin-bottom: -10000px;
     border-left: 1px solid #6C6C6C;
@@ -290,7 +291,6 @@ hr{
 .search-form{
     display: flex;
     justify-content: space-between;
-    align-content: center;
     padding: 2% 8%;
     border-bottom: 5px solid #dcdcdc;
 }
@@ -312,6 +312,14 @@ hr{
     color: white;
     border-radius: 5px;
     border: none;
+}
+
+.keyword{
+    display: block;
+    font-size: 20px;
+    color: #696969;
+    margin-top: 13px;
+    margin-right: 275px;
 }
 
 .users-area{
@@ -337,7 +345,7 @@ hr{
     width: 150px;
     height: 50px;
     margin-left: 10px;
-    background-color: #6283c2;
+    background-color: #4b71ca;
     color: white;
     border-radius: 5px;
     border: none;
@@ -348,7 +356,7 @@ hr{
     width: 150px;
     height: 50px;
     margin-left: 10px;
-    background-color: #b4534b;
+    background-color: #b95656;
     color: white;
     border-radius: 5px;
     border: none;

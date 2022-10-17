@@ -2,10 +2,13 @@
 
 @section('content')
 <div class="search-form">
-  {!! Form::open(['url' => 'user/search']) !!}
-  {!! Form::text('userSearch',null,['required','class' => 'searchform-control','placeholder' => 'ユーザー名']) !!}
+  {!! Form::open(['url' => 'result']) !!}
+  {!! Form::text('keyword',null,['required','class' => 'searchform-control','placeholder' => 'ユーザー名']) !!}
   <button type="submit" class="search-btn">検 索</button>
   {!! Form::close() !!}
+  @if (isset($keyword))
+  <p class="keyword">検索ワード：{{$keyword}}</p>
+  @endif
 </div>
 @foreach ($all_users as $active_user)
 <div class="users-area">

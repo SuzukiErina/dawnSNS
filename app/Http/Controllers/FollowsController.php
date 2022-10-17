@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Follow;
 use App\Post;
 use App\User;
@@ -39,21 +40,25 @@ class FollowsController extends Controller
         ]);
     }
 
-    // public function follow(User $user){
-    //     $follower = auth()->user();
-    //     $is_following = $follower->isFollowing($user->id);
-    //     if(!$is_following){
-    //         $follower->follow($user->id);
-    //         return back();
-    //     }
-    // }
+    public function follow($id){
+        $follow_id = auth()->user()->id;
+        DB::table('follows')->insert([
+            'follow_id' => $follow_id,
+            'follower_id' => $id
+        ]);
 
-    // public function unfollow(User $user){
-    //     $follower = auth()->user();
-    //     $is_following = $follower->isFollowing($user->id);
-    //     if($is_following){
-    //         $follower->unfollow($user->id);
-    //         return back();
-    //     }
-    // }
+            return redirect('/search');
+    }
+
+    public function unfollow($id){
+        $follow_id = auth()->user()->id;
+        DB::table('follows')
+            ->where([
+                ['follow_id','=',$follow_id],
+                ['follower_id','=',$id],
+                ])
+            ->delete();
+
+            return redirect('/search');
+    }
 }
