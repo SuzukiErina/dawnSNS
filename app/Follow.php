@@ -31,4 +31,8 @@ class Follow extends Model
     public function followIds(Int $user_id){
         return $this->where('follow_id', $user_id)->get('follower_id');
     }
+
+    public function followerIds(Int $user_id){
+        return $this->where('follower_id', $user_id)->get('follow_id');
+    }
 }

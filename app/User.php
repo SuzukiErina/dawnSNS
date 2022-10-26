@@ -43,4 +43,12 @@ class User extends Authenticatable
         return $this->follows()->detach($user_id);
     }
 
+    public function getFollows(Int $user_id, Array $follow_ids){
+        return $this->whereIn('id', $follow_ids)->orderBy('created_at','DESC')->get();
+    }
+
+    public function getFollowers(Int $user_id, Array $follower_ids){
+        return $this->whereIn('id', $follower_ids)->orderBy('created_at','DESC')->get();
+    }
+
 }

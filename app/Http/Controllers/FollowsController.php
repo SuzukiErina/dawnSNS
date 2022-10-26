@@ -16,27 +16,39 @@ class FollowsController extends Controller
         $this->middleware('auth');
     }
 
-    public function followList(User $user, Follow $follow){
+    public function followList(User $user, Follow $follow, Post $post){
         $user = auth()->user();
         $follow_count = $follow->getFollowCount($user->id);
         $follower_count = $follow->getFollowerCount($user->id);
+        $follow_ids = $follow->followIds($user->id);
+        $following_ids = $follow_ids->pluck('follower_id')->toArray();
+        $posts = $post->getTimeLines($user->id,$following_ids);
+        $follows = $user->getFollows($user->id,$following_ids);
 
         return view('follows.followList',[
             'user' => $user,
             'follow_count' => $follow_count,
-            'follower_count' => $follower_count
+            'follower_count' => $follower_count,
+            'follows' => $follows,
+            'posts' => $posts
         ]);
     }
 
-    public function followerList(User $user, Follow $follow){
+    public function followerList(User $user, Follow $follow, Post $post){
         $user = auth()->user();
         $follow_count = $follow->getFollowCount($user->id);
         $follower_count = $follow->getFollowerCount($user->id);
+        $follower_ids = $follow->followerIds($user->id);
+        $followed_ids = $follower_ids->pluck('follow_id')->toArray();
+        $posts = $post->getTimeLines($user->id,$followed_ids);
+        $followers = $user->getFollowers($user->id,$followed_ids);
 
         return view('follows.followerList',[
             'user' => $user,
             'follow_count' => $follow_count,
-            'follower_count' => $follower_count
+            'follower_count' => $follower_count,
+            'followers' => $followers,
+            'posts' => $posts
         ]);
     }
 

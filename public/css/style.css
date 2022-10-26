@@ -361,3 +361,25 @@ hr{
     border-radius: 5px;
     border: none;
 }
+
+/* フォロー・フォロワーリスト */
+.follow-list{
+    height: 220px;
+    border-bottom: 5px solid #dcdcdc;
+}
+
+.follow-list p{
+    margin-top: 25px;
+    margin-left: 50px;
+    font-size: 30px;
+    color: #696969;
+}
+
+.icon-area{
+    margin: 10px 60px;
+}
+
+.follow-icon{
+    border-radius: 50%;
+    margin-left: 10px;
+}
