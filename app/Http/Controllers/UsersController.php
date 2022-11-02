@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Follow;
 use App\Post;
 use App\User;
@@ -15,8 +16,20 @@ class UsersController extends Controller
         $this->middleware('auth');
     }
 
-    public function profile(){
-        return view('users.profile');
+    public function profile(User $user, Follow $follow, Post $post, $id){
+        $user = auth()->user();
+        $active_user = User::where('id','=',$id)->first();
+        $follow_count = $follow->getFollowCount($user->id);
+        $follower_count = $follow->getFollowerCount($user->id);
+        $posts = $post->getUserTimeLines($active_user->id);
+
+        return view('users.profile',[
+            'user' => $user,
+            'active_user' => $active_user,
+            'follow_count' => $follow_count,
+            'follower_count' => $follower_count,
+            'posts' => $posts
+        ]);
     }
 
     public function search(User $user, Follow $follow){
@@ -56,4 +69,37 @@ class UsersController extends Controller
             'keyword' => $keyword
         ]);
     }
+
+    public function profileEdit(Request $request){
+        $request->validate(
+            [
+                'username' => ['required','between:4,12'],
+                'mail' => ['required','email','between:4,12'],
+            ],
+            [
+                'username.required' => '※必須項目です',
+                'username.between' => '※4文字以上、12文字以内で入力してください',
+                'mail.required' => '※必須項目です',
+                'mail.email' => '※メールアドレスではありません',
+                'mail.between' => '※4文字以上、12文字以内で入力してください',
+            ]);
+
+        $id = $request->input('id');
+        $username = $request->input('username');
+        $mail = $request->input('mail');
+        $bio = $request->input('bio');
+
+        DB::table('users')
+            ->where('id',$id)
+            ->update(
+                [
+                'username' => $username,
+                'mail' => $mail,
+                'bio' => $bio
+                ]
+            );
+
+        return redirect($id.'/profile');
+    }
+
 }

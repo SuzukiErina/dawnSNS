@@ -34,7 +34,12 @@ Route::get('/',function(){
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 
-Route::get('/profile','UsersController@profile');
+Route::get('/profile','PostsController@profile');
+Route::post('/profile/edit','UsersController@profileEdit');
+
+Route::get('/{id}/profile','UsersController@profile');
+Route::get('/{id}/p-follow','FollowsController@pfollow');
+Route::get('/{id}/p-unfollow','FollowsController@punfollow');
 
 Route::get('/search','UsersController@search');
 Route::post('/result','UsersController@result');

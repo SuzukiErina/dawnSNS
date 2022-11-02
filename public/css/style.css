@@ -383,3 +383,101 @@ hr{
     border-radius: 50%;
     margin-left: 10px;
 }
+
+/* プロフィール */
+.profile{
+    height: 150px;
+    border-bottom: 5px solid #dcdcdc;
+}
+
+.profile-area{
+    display: flex;
+    margin: 30px 50px 10px;
+}
+
+.profile-icon{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 40px;
+}
+
+.profile-area table{
+    width: 800px;
+}
+
+.profile-area th,
+.profile-area td{
+    padding: 10px 30px 20px;
+    font-size: 20px;
+    color: #696969;
+}
+
+.profile-area th{
+    width: 60px;
+}
+
+.profile-btn{
+    margin-top: 70px;
+    margin-left: 50px;
+}
+
+/* プロフィール編集 */
+.profile-edit{
+    display: flex;
+    margin: 57px 150px;
+}
+
+.profile-edit th,
+.profile-edit td{
+    padding-bottom: 20px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.profile-edit th{
+    font-size: 20px;
+    color: #696969;
+}
+
+.input {
+    width: 500px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #dcdcdc;
+    border: none;
+    border-bottom: 2px solid #696969;
+    margin-left: 40px;
+}
+
+.input-bio {
+    width: 500px;
+    height: 150px;
+    font-size: 16px;
+    background-color: #dcdcdc;
+    border: none;
+    border-bottom: 2px solid #696969;
+    margin-left: 40px;
+}
+
+.input-image {
+    width: 500px;
+    height: 30px;
+    font-size: 16px;
+    background-color: #dcdcdc;
+    border: none;
+    border-bottom: 2px solid #696969;
+    margin-left: 40px;
+}
+
+.pedit-btn {
+    display: block;
+    margin: 0 0 0 auto;
+    cursor: pointer;
+    width: 130px;
+    height: 50px;
+    background-color: #739926;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}

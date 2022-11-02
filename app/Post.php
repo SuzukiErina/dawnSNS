@@ -19,4 +19,9 @@ class Post extends Model
         $follow_ids[] = $user_id;
         return $this->whereIn('user_id', $follow_ids)->orderBy('created_at','DESC')->paginate(50);
     }
+
+    public function getUserTimeLines(Int $active_user)
+    {
+        return $this->where('user_id', $active_user)->orderBy('created_at', 'DESC')->paginate(50);
+    }
 }

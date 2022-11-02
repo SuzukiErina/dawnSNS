@@ -78,4 +78,16 @@ class PostsController extends Controller
 
         return redirect('/top');
     }
+
+    public function profile(User $user, Follow $follow, Post $post){
+        $user = auth()->user();
+        $follow_count = $follow->getFollowCount($user->id);
+        $follower_count = $follow->getFollowerCount($user->id);
+
+        return view('posts.profile',[
+            'user' => $user,
+            'follow_count' => $follow_count,
+            'follower_count' => $follower_count,
+        ]);
+    }
 }

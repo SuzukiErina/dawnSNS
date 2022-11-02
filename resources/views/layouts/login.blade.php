@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="ページの内容を表す文章" />
     <title>dawnSNS</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -27,11 +27,11 @@
         <div id = "header">
             <div class="header-block">
                 <div class="nav-logo">
-                    <a href="/top"><img src="images/main_logo.png"></a>
+                    <a href="/top"><img src="/images/main_logo.png"></a>
                 </div>
                 <div class="menu-trigger">
                     <p>{{$user->username}} さん</p><span></span>
-                    <img class="icon" src="images/{{$user->images}}">
+                    <img class="icon" src="/images/{{$user->images}}">
                 </div>
                 <nav class="header-nav">
                     <ul>

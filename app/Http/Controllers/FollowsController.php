@@ -73,4 +73,26 @@ class FollowsController extends Controller
 
             return redirect('/search');
     }
+
+    public function pfollow($id){
+        $follow_id = auth()->user()->id;
+        DB::table('follows')->insert([
+            'follow_id' => $follow_id,
+            'follower_id' => $id
+        ]);
+
+            return redirect($id.'/profile');
+    }
+
+    public function punfollow($id){
+        $follow_id = auth()->user()->id;
+        DB::table('follows')
+            ->where([
+                ['follow_id','=',$follow_id],
+                ['follower_id','=',$id],
+                ])
+            ->delete();
+
+            return redirect($id.'/profile');
+    }
 }
