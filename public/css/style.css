@@ -481,3 +481,9 @@ hr{
     border-radius: 5px;
     border: none;
 }
+
+.error-td p{
+    margin-left: 40px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+}

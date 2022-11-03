@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 use App\Follow;
 use App\Post;
 use App\User;
@@ -74,7 +76,7 @@ class UsersController extends Controller
         $request->validate(
             [
                 'username' => ['required','between:4,12'],
-                'mail' => ['required','email','between:4,12'],
+                'mail' => ['required','email','between:4,12',Rule::unique('users')->ignore($request->id,'id')]
             ],
             [
                 'username.required' => '※必須項目です',
@@ -82,13 +84,13 @@ class UsersController extends Controller
                 'mail.required' => '※必須項目です',
                 'mail.email' => '※メールアドレスではありません',
                 'mail.between' => '※4文字以上、12文字以内で入力してください',
+                'mail.unique' => '※すでに登録されたメールアドレスです'
             ]);
 
         $id = $request->input('id');
         $username = $request->input('username');
         $mail = $request->input('mail');
         $bio = $request->input('bio');
-        $file_name = $request->file('image')->store('public/');
 
         DB::table('users')
             ->where('id',$id)
@@ -96,10 +98,40 @@ class UsersController extends Controller
                 [
                 'username' => $username,
                 'mail' => $mail,
-                'bio' => $bio,
-                'images' => basename($file_name)
+                'bio' => $bio
                 ]
             );
+
+        if (isset($request->password)) {
+            $request->validate(
+            [
+                'password' => ['alpha_num','between:4,12','unique:users']
+            ],
+            [
+                'password.alpha_num' => '※英数字で入力してください',
+                'password.between' => '※4文字以上、12文字以内で入力してください',
+                'password.unique' => '※すでに登録されたパスワードです'
+            ]);
+        }
+
+        if (isset($request->image)) {
+            $request->validate(
+            [
+                'image' => ['image']
+            ],
+            [
+                'image.image' => '※画像ファイルを選択してください'
+            ]);
+
+            $file_name = $request->file('image')->store('public/');
+
+        DB::table('users')
+            ->where('id',$id)
+            ->update(
+                ['images' => basename($file_name)
+                ]
+            );
+        }
 
         return redirect($id.'/profile');
     }
