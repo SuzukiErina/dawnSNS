@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="profile-edit">
-<img class="profile-icon" src="/images/{{$user->images}}">
-  {!! Form::open(['url' => 'profile/edit']) !!}
+<img class="profile-icon" src="/storage/{{$user->images}}">
+  {!! Form::open(['url' => 'profile/edit', 'files' => 'true']) !!}
   {!! Form::hidden('id',$user->id,['class' => 'input']) !!}
   <table>
     <tr>

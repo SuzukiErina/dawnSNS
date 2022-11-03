@@ -3,7 +3,7 @@
 @section('content')
 <div class="profile">
   <div class="profile-area">
-    <img class="profile-icon" src="/images/{{$active_user->images}}"></a>
+    <img class="profile-icon" src="/storage/{{$active_user->images}}"></a>
     <table>
       <tr>
         <th>Name</th>
@@ -31,7 +31,7 @@
 </div>
 @foreach ($posts as $post)
 <div class="posts-area">
-  <a href="/{{$post->user->id}}/profile"><img class="posts-icon" src="/images/{{$post->user->images}}"></a>
+  <a href="/{{$post->user->id}}/profile"><img class="posts-icon" src="/storage/{{$post->user->images}}"></a>
   <div class="posts">
     <div class="posts-top">
       <div class="posts-username">

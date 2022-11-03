@@ -88,6 +88,7 @@ class UsersController extends Controller
         $username = $request->input('username');
         $mail = $request->input('mail');
         $bio = $request->input('bio');
+        $file_name = $request->file('image')->store('public/');
 
         DB::table('users')
             ->where('id',$id)
@@ -95,7 +96,8 @@ class UsersController extends Controller
                 [
                 'username' => $username,
                 'mail' => $mail,
-                'bio' => $bio
+                'bio' => $bio,
+                'images' => basename($file_name)
                 ]
             );
 

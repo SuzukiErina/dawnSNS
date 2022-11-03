@@ -2,19 +2,19 @@
 
 @section('content')
 <div class="post-area">
-    <img class="post-icon" src="images/{{$user->images}}">
+    <img class="post-icon" src="storage/{{$user->images}}">
   {!! Form::open(['url' => 'post/create']) !!}
   {!! Form::hidden('id',$user->id) !!}
   @foreach ($errors->get('newPost') as $error)
   <p class="error-txt">※ {{ $error }}</p>
   @endforeach
   {!! Form::textarea('newPost',null,['class' => 'form-control','placeholder' => '何をつぶやこうか･･･？','rows' => '3']) !!}
-  <button type="submit" class="post-btn"><img src="images/post.png"></button>
+  <button type="submit" class="post-btn"><img src="storage/post.png"></button>
   {!! Form::close() !!}
 </div>
 @foreach ($posts as $post)
 <div class="posts-area">
-  <img class="posts-icon" src="images/{{$post->user->images}}">
+  <img class="posts-icon" src="storage/{{$post->user->images}}">
   <div class="posts">
     <div class="posts-top">
       <div class="posts-username">
@@ -27,8 +27,8 @@
     {{ $post->posts }}
     @if ($post->user->id === Auth::user()->id)
     <div class="posts-bottom">
-      <button type="button" class="modal-open edit-btn" data-toggle="modal" data-target="#editModal" data-id="{{ $post->id }}" data-posts="{{ $post->posts }}"><img src="images/edit.png"></button>
-      <a class="delete-btn" href="/post/{{ $post->id }}/delete" onclick="return confirm('このつぶやきを削除します。よろしいですか？')"><img src="images/trash_h.png"></a>
+      <button type="button" class="modal-open edit-btn" data-toggle="modal" data-target="#editModal" data-id="{{ $post->id }}" data-posts="{{ $post->posts }}"><img src="storage/edit.png"></button>
+      <a class="delete-btn" href="/post/{{ $post->id }}/delete" onclick="return confirm('このつぶやきを削除します。よろしいですか？')"><img src="storage/trash_h.png"></a>
     </div>
     @endif
   </div>
@@ -60,7 +60,7 @@
     {!! Form::open(['url' => 'post/update']) !!}
     {!! Form::hidden('id',$post->id,['class' => 'editform-id']) !!}
     {!! Form::textarea('upPost',$post->posts,['class' => 'editform-posts','rows' => '3']) !!}
-    <button type="submit" class="update-btn edit-btn"><img src="images/edit.png"></button>
+    <button type="submit" class="update-btn edit-btn"><img src="storage/edit.png"></button>
     {!! Form::close() !!}
   </div>
 </div>

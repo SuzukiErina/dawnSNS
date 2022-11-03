@@ -12,7 +12,7 @@
 </div>
 @foreach ($all_users as $active_user)
 <div class="users-area">
-  <img class="users-icon" src="images/{{$active_user->images}}">
+  <img class="users-icon" src="storage/{{$active_user->images}}">
   {{ $active_user->username }}
   <div class="btn-area">
     @if (DB::table('follows')->where([
