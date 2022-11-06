@@ -47,6 +47,9 @@ class LoginController extends Controller
             //↓ログイン条件は公開時には消すこと
             if(Auth::attempt($data)){
                 return redirect('/top');
+            } else {
+                return redirect('login')
+                ->with('error','メールアドレス、またはパスワードが違います');
             }
         }
         return view("auth.login");

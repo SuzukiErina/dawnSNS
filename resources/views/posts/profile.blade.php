@@ -31,12 +31,12 @@
     @endforeach
     <tr>
     <th>{{ Form::label('Password') }}</th>
-    <td>{{ Form::text('oldPassword','●●●●●●●',['class' => 'input','readonly']) }}</td>
+    <td>{{ Form::text('current_password','●●●●●●●',['class' => 'input','readonly']) }}</td>
     </tr>
     <tr>
       <th>{{ Form::label('new Password') }}</th>
       <td>{{ Form::password('password',['class' => 'input']) }}</td>
-    @foreach ($errors->get('newPassword') as $error)
+    @foreach ($errors->get('password') as $error)
       <tr>
         <td class="error-td"></td>
         <td class="error-td">

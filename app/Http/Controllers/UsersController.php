@@ -112,6 +112,10 @@ class UsersController extends Controller
                 'password.between' => '※4文字以上、12文字以内で入力してください',
                 'password.unique' => '※すでに登録されたパスワードです'
             ]);
+
+            $user = User::find($request->id);
+            $user->password = Hash::make($request->password);
+            $user->save();
         }
 
         if (isset($request->image)) {
