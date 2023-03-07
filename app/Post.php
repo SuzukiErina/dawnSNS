@@ -24,4 +24,8 @@ class Post extends Model
     {
         return $this->where('user_id', $active_user)->orderBy('created_at', 'DESC')->paginate(50);
     }
+
+public function testTimeLines(Int $user_id){
+    return $this->where('user_id',$user_id)->orderBy('created_at','DESC')->get();
+}
 }

@@ -59,7 +59,7 @@ class FollowsController extends Controller
             'follower_id' => $id
         ]);
 
-            return redirect('/search');
+        return redirect('/search');
     }
 
     public function unfollow($id){
@@ -71,7 +71,7 @@ class FollowsController extends Controller
                 ])
             ->delete();
 
-            return redirect('/search');
+        return redirect('/search');
     }
 
     public function pfollow($id){
@@ -81,7 +81,7 @@ class FollowsController extends Controller
             'follower_id' => $id
         ]);
 
-            return redirect($id.'/profile');
+        return redirect($id.'/profile');
     }
 
     public function punfollow($id){
@@ -93,6 +93,6 @@ class FollowsController extends Controller
                 ])
             ->delete();
 
-            return redirect($id.'/profile');
+        return redirect($id.'/profile');
     }
 }

@@ -5,13 +5,17 @@
   <p>Follow list</p>
   <div class="icon-area">
     @foreach ($follows as $follow)
-    <a href="/{{$follow->id}}/profile"><img class="follow-icon" src="storage/{{$follow->images}}"></a>
+    <a href="/{{$follow->id}}/profile">
+      <img class="follow-icon" src="storage/{{$follow->images}}">
+    </a>
     @endforeach
   </div>
 </div>
 @foreach ($posts as $post)
 <div class="posts-area">
-  <a href="/{{$post->user->id}}/profile"><img class="posts-icon" src="storage/{{$post->user->images}}"></a>
+  <a href="/{{$post->user->id}}/profile">
+    <img class="posts-icon" src="storage/{{$post->user->images}}">
+  </a>
   <div class="posts">
     <div class="posts-top">
       <div class="posts-username">

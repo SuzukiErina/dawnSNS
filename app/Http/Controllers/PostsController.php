@@ -90,4 +90,13 @@ class PostsController extends Controller
             'follower_count' => $follower_count,
         ]);
     }
+
+    public function test(Post $post){
+        $user = auth()->user();
+        $posts = $post->testTimeLines($user->id);
+        return view('posts.test',[
+            'user' => $user,
+            'posts' => $posts,
+        ]);
+    }
 }
